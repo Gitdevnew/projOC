@@ -20,7 +20,7 @@ require("Commun/PDO.php");
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['username']) AND !empty($_POST['password']) AND !empty($_POST['question']) AND !empty($_POST['reponse']))
     {
       //verification si pesudo déjà utiliser
-      $stmt = $bdd->prepare("SELECT id_user FROM account WHERE username = ?");
+      $stmt = $bdd->prepare("SELECT id_user FROM compte WHERE username = ?");
       $stmt->execute(array($username));
       // verification avec un rowcount
       $pseudoexistedeja = $stmt->rowcount();
@@ -28,7 +28,7 @@ require("Commun/PDO.php");
       {
         // si les champs sont remplis et que le pseudo n'est pas déja utilisé alors insertion dans la bdd
 
-        $stmt = $bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES(?, ?, ?, ?, ?, ?)');
+        $stmt = $bdd->prepare('INSERT INTO compte(nom, prenom, username, password, question, reponse) VALUES(?, ?, ?, ?, ?, ?)');
         $stmt->execute(array($nom, $prenom, $username,$password_hache, $question, $reponse));
 
         // puis redirection  vers la page  connexion
