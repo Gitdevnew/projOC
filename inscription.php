@@ -3,6 +3,7 @@
 
 $title = 'Inscription nouvel utilisateur';
 require("Commun/PDO.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +36,21 @@ require("Commun/PDO.php");
       <div id="connect">
         <h2>Inscription</h2>
 
+        <?php // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le pseudo choisi n'est pas libre
+
+        if(!empty($_GET['err']) && $_GET['err']== "pseudo")
+        {
+          echo '<p style="color: #F51720;"><strong> Pseudo déjà utilisé, veuillez en choisir un autre ! </strong></p>';
+        }
+
+        // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le remplissage des  champs infos n'est pas complet
+
+        if(!empty($_GET['err']) && $_GET['err']== "champ")
+        {
+          echo '<p style="color: #F51720;"><strong> Veuillez remplir tous les champs. </strong></p>';
+        }
+        ?>
+
         <form class="formulaire" method="post" action="inscription_PDO.php">
           <label for="nom"> Votre nom : </label> <br>
           <input class="input" type="text" name="nom">
@@ -57,9 +73,9 @@ require("Commun/PDO.php");
       </div>
     </div>
 
-<!-- FOOTER -->
-<?php
+<!-- footer -->
+       <?php
 
-    include("Commun/footer.php");
-?>
+        include("Commun/footer.php");
+        ?>
 
