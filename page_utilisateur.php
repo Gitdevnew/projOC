@@ -42,7 +42,7 @@ include("Commun/header_connecte.php");
               echo '<h2>' . $acteur['acteur'] . '</h2>';
               echo substr($acteur['description'], 0, 114).'...';
             ?>
-            <button class="btn_connexion  buttons btn-hover color-11" onclick= "window.location.href='page_acteur.php?id=<?php echo $acteur['id_acteur']; ?>';">Afficher la suite
+            <button class="btn_connexion  buttons btn-hover color-1" onclick= "window.location.href='page_acteur.php?id=<?php echo $acteur['id_acteur']; ?>';">Afficher la suite
             </button>
           </div>
         </div>
