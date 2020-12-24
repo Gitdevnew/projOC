@@ -27,6 +27,29 @@ include("Commun/header_connecte.php");
         <h2> Acteurs et Partenaires </h2>
           <p> Présentation de la liste des différents acteurs du système bancaire français :</p>
       </div>
+
+      <div>
+        <?php
+        $stmt = $bdd->query('SELECT * FROM acteur');
+        // Boucle while pour l'affichage des données des acteurs
+        while($acteur = $stmt->fetch())
+        {
+        ?>
+        <div class="contain_acteur">
+          <img src="<?php echo $acteur['logo'];?>" alt="logo"/>
+        <div>
+            <?php
+              echo '<h2>' . $acteur['acteur'] . '</h2>';
+              echo substr($acteur['description'], 0, 114).'...';
+            ?>
+            <button class="btn_connexion  buttons btn-hover color-11" onclick= "window.location.href='page_acteur.php?id=<?php echo $acteur['id_acteur']; ?>';">Afficher la suite
+            </button>
+          </div>
+        </div>
+        <?php
+        }
+        ?>
+      </div>
     </div>
 <?php
 include('Commun/footer.php');
