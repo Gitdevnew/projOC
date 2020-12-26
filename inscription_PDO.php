@@ -4,9 +4,11 @@
 
 require("Commun/PDO.php");
 
+    // si la variable $_POST['valider'] existe
+
   if (isset($_POST['valider']))
   {
-    // securisation des donnees envoyées et du password
+    // securisation des donnees envoyées et du password et initialisation des variables à insérer
 
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']) ;
@@ -15,21 +17,40 @@ require("Commun/PDO.php");
     $question = ($_POST['question']);
     $reponse = htmlspecialchars($_POST['reponse']);
 
-    // si tous les champs sont remplis
+    // on verifie si tous les champs sont remplis
 
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['username']) AND !empty($_POST['password']) AND !empty($_POST['question']) AND !empty($_POST['reponse']))
     {
-      //verification si pesudo déjà utiliser
+      //d'abord on vérifie si le pseudo est déjà utiliser
       $stmt = $bdd->prepare("SELECT id_user FROM compte WHERE username = ?");
-      $stmt->execute(array($username));
-      // verification avec un rowcount
+
+      $stmt->bindValue(1, $username);
+      $stmt->execute();
+      $stmt->closeCursor();
+
+      // la verificationse se fait  avec un rowcount si le pseudo existe déjà ou pas dans le résultat de la requete la valeur doit etre = à 0 sinon il est déja utilisé
+
       $pseudoexistedeja = $stmt->rowcount();
       if ($pseudoexistedeja == 0)
       {
         // si les champs sont remplis et que le pseudo n'est pas déja utilisé alors insertion dans la bdd
 
-        $stmt = $bdd->prepare('INSERT INTO compte(nom, prenom, username, password, question, reponse) VALUES(?, ?, ?, ?, ?, ?)');
-        $stmt->execute(array($nom, $prenom, $username,$password_hache, $question, $reponse));
+                $stmt = $bdd->prepare("INSERT INTO compte(nom, prenom, username, password, question, reponse)
+                    VALUES (:nom, :prenom, :username, :password, :question, :reponse)");
+
+                // on lie les valeurs avec Bind value par sécurité (ici pas besoin de préciser le type: par défaut = string)
+
+                $stmt->bindValue(':nom', $nom);
+                $stmt->bindValue(':prenom', $prenom);
+                $stmt->bindValue(':username', $username);
+                $stmt->bindValue(':password', $password_hache);
+                $stmt->bindValue(':question', $question);
+                $stmt->bindValue(':reponse', $reponse);
+
+                $stmt->execute();
+                $stmt->closeCursor();
+
+
 
         // puis redirection  vers la page  connexion
         header('Location: connexion.php');
