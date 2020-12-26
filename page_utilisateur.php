@@ -1,5 +1,6 @@
 <?php
-session_start();
+// rajout arobase par securité a session
+@session_start();
  $title = 'Page utilisateur connecté';
  require("Commun/PDO.php");
 include("Commun/header_connecte.php");
