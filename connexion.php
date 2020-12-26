@@ -10,9 +10,10 @@
     <div id="corps">
       <div id="connect">
         <h2>    Connectez vous</h2>
+
         <!-- Formulaire de connexion -->
         <div class="formulaire">
-          <form method="post" action="verification_connexion.php">
+          <form method="post" action="connexion_PDO.php">
             <fieldset>
             <legend>Utilisateur</legend>
             <label for="pseudo">Votre pseudo </label> <br>
@@ -26,13 +27,13 @@
         </div>
 
         <?php
-        //affiche une erreur si mdp faux envoyé par la page verification_connexion
+        //affiche une erreur si le mdp est faux envoyé par la page connexion_PDO
         if(!empty($_GET['err']) && $_GET['err']== "password")
         {
           echo '<p style="color: #F51720;"><strong> Mot de passe ou pseudo incorrect ! </strong></p>';
         }
 
-        // affiche une erreur si tous les champs ne sont pas remplis envoyé par la page verification_connexion
+        // affiche une erreur si tous les champs ne sont pas remplis envoyé par la page connexion_PDO
         if(!empty($_GET['err']) && $_GET['err']== "champs")
         {
           echo '<p style="color: #F51720;"><strong>Veuillez remplir tous les champs.</strong></p>';
@@ -47,7 +48,7 @@
 
       </div>
     </div>
-<!-- FOOTER -->
+<!-- footer -->
         <?php
 
         include("Commun/footer.php");
