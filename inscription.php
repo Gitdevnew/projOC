@@ -3,7 +3,6 @@
 
 $title = 'Inscription nouvel utilisateur';
 require("Commun/PDO.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +10,7 @@ require("Commun/PDO.php");
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <!-- affichage de la variable title dans la balise title-->
          <?php
             if(!empty($title))
@@ -68,14 +68,13 @@ require("Commun/PDO.php");
           </select> <br>
           <label for="reponse"> Réponse à la question secrète : </label> <br>
           <input class="input" type="text" name="reponse">
-          <input class="btn_connexion" type="submit" name="valider" value="Valider">
+          <input class="btn_connexion buttons btn-hover color-8" type="submit" name="valider" value="Valider">
         </form>
       </div>
     </div>
 
 <!-- footer -->
-       <?php
-
-        include("Commun/footer.php");
-        ?>
+<?php
+  include("Commun/footer.php");
+?>
 
