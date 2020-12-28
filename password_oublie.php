@@ -1,25 +1,26 @@
 <?php
 // Mise en mémoire tampon
 ob_start();
-// connexion à la bdd
+// connexion à la bdd et initialisation de la variable title ajouté au header
 $title = 'Page mot de passe oublié';
 require("Commun/PDO.php");
 require_once("Commun/header.php");
-// démarrage de la session
-session_start();
+// démarrage de la session l'arobase sert a ne pas afficher l'erreur en cas d'attaque
+@session_start();
 
 //verification de l'envoi et securisation des donnees
-if (isset($_POST['envoyer']))
-{
+if (isset($_POST['envoyer'])) {
     $username = htmlspecialchars($_POST['username']);
     $reponse = htmlspecialchars($_POST['reponsesecrete']);
 
     // verification du remplissage
-    if (!empty($_POST['username']) AND !empty($_POST['reponsesecrete']))
-    {
+    if (!empty($_POST['username']) AND !empty($_POST['reponsesecrete'])) {
+        // on prepare la requete sur l'utilisateur on lie les valeurs avec Bind value par sécurité (ici pas besoin de préciser le type: par défaut = string)
+
         $stmt = $bdd->prepare('SELECT * FROM compte WHERE username = :username');
-        $stmt->execute(array(
-        'username' => $username));
+
+        $stmt->bindValue(':username', $username);
+        $stmt->execute();
         $result = $stmt->fetch();
         $stmt->closeCursor();
 
@@ -27,16 +28,13 @@ if (isset($_POST['envoyer']))
 
         $reponseCorrecte = (($_POST['username'] == $result['username']) AND ($_POST['reponsesecrete'] == $result['reponse']));
 
-        // si la réponse n'est pas correcte on rempli une variable erreur
-        if (!$reponseCorrecte)
-        {
+        // si la réponse n'est pas correcte on rempli une variable erreur a afficher
+        if (!$reponseCorrecte) {
             $erreur = '<p style="color: #F51720;"><strong> Réponse incorrecte !</strong></p>';
         }
 
-        // sinon si elle est correcte on redirige vers la page nouveau mot de passe pour le changer
-        else
-        {
-            // renvoyer l'username + reponse vers la page  nouveau mot de passe
+        // sinon si elle est correcte et que tout est ok on redirige vers la page nouveau mot de passe pour le changer
+        else {
             $_SESSION['id_user'] = $result['id_user'];
             $_SESSION['pseudo'] = $result['username'];
             $_SESSION['nom']= $result['nom'];
@@ -46,8 +44,7 @@ if (isset($_POST['envoyer']))
     }
 
     // sinon on recupere le default de remplissage dans une variable champs
-    else
-    {
+    else {
         $champs = '<p style="color: #F51720;"><strong>Veuillez remplir tous les champs.</strong></p>';
     }
 
@@ -63,7 +60,7 @@ if (isset($_POST['envoyer']))
                  <br>
                 <label for="reponse_secrete">Réponse à la question secrète :</label>
                 <input class="input" type="text" name="reponsesecrete" id="reponsesecrete">
-                <input class="btn_connexion" type="submit" value="Valider" name="envoyer"> <br>
+                <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Valider" name="envoyer"> <br>
             </form>
             <?php
             // Affichage de la variable erreur si la reponse secrete est mauvaise
