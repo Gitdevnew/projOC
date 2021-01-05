@@ -7,24 +7,24 @@
 
 
 
-        <div id="corps">
-            <div id="connect">
-            <h2>    Connectez vous</h2>
+    <div id="corps">
+      <div id="connect">
+        <h2>    Connectez vous</h2>
 
-        <!-- Formulaire de connexion -->
-            <div class="formulaire">
-              <form method="post" action="connexion_PDO.php">
-                <fieldset>
-                <legend>Utilisateur</legend>
-                <label for="pseudo">Votre pseudo </label> <br>
-                <input class="input" type="text" name="username" id="pseudo"> <br>
-                <label for="mdp">Votre mot de passe </label> <br>
-                <input class="input" type="password" name="password" id="mdp"><br>
-                <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Connexion"> <br><br>
-                <a href="password_oublie.php"> Vous avez oublié votre mot de passe ? </a><br><br>
-                </fieldset>
-              </form>
-            </div>
+    <!-- Formulaire de connexion -->
+        <div class="formulaire">
+          <form method="post" action="connexion_PDO.php">
+            <fieldset>
+            <legend>Utilisateur</legend>
+            <label for="pseudo">Votre pseudo </label> <br>
+            <input class="input" type="text" name="username" id="pseudo"> <br>
+            <label for="mdp">Votre mot de passe </label> <br>
+            <input class="input" type="password" name="password" id="mdp"><br>
+            <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Connexion"> <br><br>
+            <a href="password_oublie.php"> Vous avez oublié votre mot de passe ? </a><br><br>
+            </fieldset>
+          </form>
+        </div>
 
         <?php
 
