@@ -1,6 +1,5 @@
 
 <?php
-
 $title = 'Inscription nouvel utilisateur';
 require("Commun/PDO.php");
 ?>
@@ -10,11 +9,9 @@ require("Commun/PDO.php");
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <!-- affichage de la variable title dans la balise title-->
          <?php
-            if(!empty($title))
-            {
+            if(!empty($title)) {
         ?>
         <title><?= $title; }?></title>
         <link rel="stylesheet" type="text/css" href="CSS/main2.css">
@@ -38,15 +35,13 @@ require("Commun/PDO.php");
 
         <?php // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le pseudo choisi n'est pas libre
 
-        if(!empty($_GET['err']) && $_GET['err']== "pseudo")
-        {
+        if(!empty($_GET['err']) && $_GET['err']== "pseudo") {
           echo '<p style="color: #F51720;"><strong> Pseudo déjà utilisé, veuillez en choisir un autre ! </strong></p>';
         }
 
         // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le remplissage des  champs infos n'est pas complet
 
-        if(!empty($_GET['err']) && $_GET['err']== "champ")
-        {
+        if(!empty($_GET['err']) && $_GET['err']== "champ") {
           echo '<p style="color: #F51720;"><strong> Veuillez remplir tous les champs. </strong></p>';
         }
         ?>
@@ -74,7 +69,7 @@ require("Commun/PDO.php");
     </div>
 
 <!-- footer -->
-<?php
-  include("Commun/footer.php");
-?>
+       <?php
+        include("Commun/footer.php");
+        ?>
 
