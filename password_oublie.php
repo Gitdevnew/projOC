@@ -52,29 +52,29 @@ if (isset($_POST['envoyer'])) {
 
 ?>
 
-        <!-- Formulaire pseudo et réponse -->
-        <div id="connect">
-            <form class="formulaire" method="post" action="password_oublie.php">
-                <label for="username"> Votre pseudo : </label> <br>
-                <input class="input" type="text" name="username" id="username">
-                 <br>
-                <label for="reponse_secrete">Réponse à la question secrète :</label>
-                <input class="input" type="text" name="reponsesecrete" id="reponsesecrete">
-                <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Valider" name="envoyer"> <br>
-            </form>
-            <?php
-            // Affichage de la variable erreur si la reponse secrete est mauvaise
-            if(isset($erreur)) {
-                echo $erreur;
-            }
-            ?>
-            <!-- Affichage de la vaiable champs si tout les champs ne sont pas remplis-->
-            <?php
-            if(isset($champs)) {
-                echo $champs;
-            }
-            ?>
-        </div>
+<!-- Formulaire pseudo et réponse -->
+<div id="connect">
+    <form class="formulaire" method="post" action="password_oublie.php">
+        <label for="username"> Votre pseudo : </label> <br>
+        <input class="input" type="text" name="username" id="username">
+         <br>
+        <label for="reponse_secrete">Réponse à la question secrète :</label>
+        <input class="input" type="text" name="reponsesecrete" id="reponsesecrete">
+        <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Valider" name="envoyer"> <br>
+    </form>
+    <?php
+    // Affichage de la variable erreur si la reponse secrete est mauvaise
+    if(isset($erreur)) {
+        echo $erreur;
+    }
+    ?>
+    <!-- Affichage de la vaiable champs si tout les champs ne sont pas remplis-->
+    <?php
+    if(isset($champs)) {
+        echo $champs;
+    }
+    ?>
+</div>
 <?php
 include('Commun/footer.php');
 ?>
