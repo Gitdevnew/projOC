@@ -131,8 +131,7 @@ if(isset($_SESSION['id_user'])) {
 </div>
 <?php
 }
-else
-{
+else {
    header("Location: connexion.php");
 }
 ?>
