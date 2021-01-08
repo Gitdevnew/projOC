@@ -1,6 +1,6 @@
 
 
-<footer>
+      <footer>
         <div class="containfoot">
 
                 <p>Projet 3 Formation initiation Fullstack : extranet d'un groupe bancaire.
