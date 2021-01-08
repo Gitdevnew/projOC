@@ -3,7 +3,7 @@
 session_start();
 $title = 'Page des paramètres utilisateur';
 require("Commun/PDO.php");
-require_once("Commun/header_connecte.php");
+require_once("Commun/header.php");
 // on selectionne d'abord toutes les données de l'utilisateur présentes dans la base grace a son id et l'id de session que l'on met dans une variable ($user) pour faire les verifications(comparaisons)
 if(isset($_SESSION['id_user'])) {
    $stmt = $bdd->prepare("SELECT * FROM compte WHERE id_user= :id_user");
