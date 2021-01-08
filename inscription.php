@@ -2,43 +2,17 @@
 <?php
 $title = 'Inscription nouvel utilisateur';
 require("Commun/PDO.php");
+include("Commun/header.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- affichage de la variable title dans la balise title-->
-         <?php
-            if(!empty($title)) {
-        ?>
-        <title><?= $title; }?></title>
-        <link rel="stylesheet" type="text/css" href="CSS/main2.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    </head>
-
-  <body>
-    <header>
-      <div >
-        <a href="index.php">
-          <img  src="Images/LOGO_GBAF.png" alt="logo" style="height: 100px;">
-        </a>
-      </div>
-    </header>
-
-
-      <div id="corps">
+    <div id="corps">
       <div id="connect">
         <h2>Inscription</h2>
 
         <?php // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le pseudo choisi n'est pas libre
-
         if(!empty($_GET['err']) && $_GET['err']== "pseudo") {
           echo '<p style="color: #F51720;"><strong> Pseudo déjà utilisé, veuillez en choisir un autre ! </strong></p>';
         }
-
         // recuperation dans l'url et affichage du message d'erreur (envoyé par la page inscription_PDO) si le remplissage des  champs infos n'est pas complet
 
         if(!empty($_GET['err']) && $_GET['err']== "champ") {
@@ -69,7 +43,7 @@ require("Commun/PDO.php");
     </div>
 
 <!-- footer -->
-       <?php
-        include("Commun/footer.php");
-        ?>
+<?php
+include("Commun/footer.php");
+?>
 
