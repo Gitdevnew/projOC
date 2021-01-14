@@ -22,13 +22,13 @@ include("Commun/header.php");
 
         <form class="formulaire" method="post" action="inscription_PDO.php">
           <label for="nom"> Votre nom : </label> <br>
-          <input class="input" type="text" name="nom">
+          <input class="input" type="text" name="nom"><br>
           <label for="prenom"> Votre prénom : </label> <br>
-          <input class="input" type="text" name="prenom">
+          <input class="input" type="text" name="prenom"><br>
           <label for="pseudo"> Votre pseudo : </label> <br>
-          <input class="input" type="text" name="username">
+          <input class="input" type="text" name="username"><br>
           <label for="mdp"> Votre mot de passe : </label> <br>
-          <input class="input" type="password" name="password">
+          <input class="input" type="password" name="password"><br>
           <label for="question"> Choisissez une question secrète : </label> <br>
           <select class="input" name="question">
             <option value="choix1">Le nom de jeune fille de votre mère</option>
