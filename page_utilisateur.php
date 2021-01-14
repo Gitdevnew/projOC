@@ -35,8 +35,7 @@ include("Commun/header.php");
         <?php
         $stmt = $bdd->query('SELECT * FROM acteur');
         // Boucle while pour l'affichage des données des acteurs
-        while($acteur = $stmt->fetch())
-        {
+        while($acteur = $stmt->fetch()) {
         ?>
         <div class="contain_acteur">
           <img src="<?=  $acteur['logo'];?>" alt="logo"/>
