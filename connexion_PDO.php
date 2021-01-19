@@ -5,8 +5,8 @@ require("Commun/PDO.php");
 
     // récupération des informations correspondant au pseudo saisi
 
-    $stmt = $bdd->prepare('SELECT id_user, nom, prenom, password FROM compte WHERE username = ?');
-    $stmt->bindValue(1, $_POST['username']);
+    $stmt = $bdd->prepare('SELECT id_user, nom, prenom, password FROM compte WHERE username = :username');
+    $stmt->bindValue(':username', $_POST['username']);
     $stmt->execute();
     $result = $stmt->fetch();
     $stmt->closeCursor ();
