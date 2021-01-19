@@ -6,7 +6,7 @@ include("Commun/header.php");
 
 ?>
 
- <br><br><br><br>
+
     <div id="contain_desc">
       <br><br><br>
       <h1> Bienvenue sur l'extranet de GBAF </h1>
@@ -22,8 +22,8 @@ include("Commun/header.php");
 
     </div>
     <!-- affichage de l'illustration -->
-    <div class="illustration" >
-        <img src="images/GBAF.png" style="display:block; text-align:center; max-width: 90%; height:182px; margin-left:auto; margin-right:auto;"   alt="illustration">
+    <div  >
+        <img class="illustration" src="images/GBAF.png"    alt="illustration">
     </div>
     <div id="container_acteurs">
       <div id="contain_text">
@@ -31,7 +31,7 @@ include("Commun/header.php");
           <p> Présentation de la liste des différents acteurs du système bancaire français :</p>
       </div>
 
-      <div>
+
         <?php
         $stmt = $bdd->query('SELECT * FROM acteur');
         // Boucle while pour l'affichage des données des acteurs
@@ -50,7 +50,7 @@ include("Commun/header.php");
         <?php
         }
         ?>
-      </div>
+
     </div>
 <?php
 include('Commun/footer.php');
