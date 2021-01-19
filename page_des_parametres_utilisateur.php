@@ -21,7 +21,7 @@ if(isset($_SESSION['id_user'])) {
       $stmt->bindValue(':nom', $nNom);
       $stmt->bindValue(':id_user', $_SESSION['id_user']);
       $stmt->execute();
-      $succesNom = '<p style="color: green;">Votre nom a été modifié, la modification s\'affichera lors de votre prochaine connexion ! </p>';
+      $succesNom = '<p style="color: green;">Votre nom a été modifié ! </p>';
    }
 
    if(isset($_POST['n_prenom']) AND !empty($_POST['n_prenom']) AND $_POST['n_prenom'] != $user['prenom']) {
@@ -30,7 +30,7 @@ if(isset($_SESSION['id_user'])) {
       $stmt->bindValue(':prenom', $nPrenom);
       $stmt->bindValue(':id_user', $_SESSION['id_user']);
       $stmt->execute();
-      $succesPrenom = '<p style="color: green;">Votre prénom a été modifié, la modification s\'affichera lors de votre prochaine connexion ! </p>';
+      $succesPrenom = '<p style="color: green;">Votre prénom a été modifié ! </p>';
    }
 
    if(isset($_POST['n_pseudo']) AND !empty($_POST['n_pseudo']) AND $_POST['n_pseudo'] != $user['username']) {
@@ -83,55 +83,60 @@ if(isset($_SESSION['id_user'])) {
 
 ?>
 <!-- formulaire de modification des informations + affichage des variables succes si modification-->
-
-<div id="connect">
-   <h3>Paramètres du compte utilisateur</h3>
-   <form class="formulaire" method="post" action="page_des_parametres_utilisateur.php">
-      <fieldset>
-      <legend>Vos informations</legend>
-      <label for="nom">Nom :</label>
-      <input class="input" type="text" name="n_nom" placeholder="Nom" value="<?php echo $user['nom']; ?>" id="nom" />
-      <?php if(isset($succesNom)) { echo $succesNom; } ?>
-      <br />
-      <br />
-      <label for="prenom">Prénom :</label>
-      <input class="input" type="text" name="n_prenom" placeholder="Prénom" value="<?php echo $user['prenom']; ?>" id="prenom" />
-      <?php if(isset($succesPrenom)) { echo $succesPrenom; } ?>
-      <br />
-      <br />
-      <!-- Pour le pseudo en plus affichage d'un avertissement pseudo déjà utilisé au cas où-->
-      <label for="pseudo">Pseudo :</label>
-      <input class="input" type="text" name="n_pseudo" placeholder="Pseudo" value="<?php echo $user['username']; ?>" id="pseudo" />
-      <?php if(isset($succesPseudo)) { echo $succesPseudo;}
-            if(isset($erreurPseudo)) { echo $erreurPseudo;} ?>
-      <br />
-      <br />
-      <label for="question">Question secrète :</label>
-      <select class="input" name="n_question" id="question">
-         <option value="choix1">Le nom de jeune fille de votre mère</option>
-         <option value="choix2">Le nom de votre premier animal de compagnie</option>
-         <option value="choix3">La ville de naissance de votre père</option>
-      </select>
-      <?php if(isset($succesQuestion)) { echo $succesQuestion; } ?>
-      <br/>
-      <br/>
-      <label for="reponse">Réponse à la question secrète :</label>
-      <input class="input" type="text" name="n_reponse" placeholder="Réponse à la question choisie" id="reponse" />
-      <?php if(isset($succesReponse)) { echo $succesReponse; } ?>
-      <br />
-      <br />
-      <label for="password">Mot de passe :</label>
-      <input class="input" type="password" name="n_password" placeholder="Mot de passe" id="password"/>
-      <?php if(isset($succesPassword)) { echo $succesPassword; } ?>
-      <br />
-      <br />
-      <input class="btn_connexion" type="submit" value="Mettre à jour" />
-      </fieldset>
-   </form><br/><br/>
+<div class="param_ut">
+   <div id="connect">
+      <h2>Paramètres du compte utilisateur</h2>
+      <form class="formulaire" method="post" action="page_des_parametres_utilisateur.php">
+         <fieldset>
+            <legend>Vos informations</legend>
+            <label for="nom">Nom :</label>
+            <input class="input" type="text" name="n_nom" placeholder="Nom" value="<?php echo $user['nom']; ?>" id="nom" />
+            <?php if(isset($succesNom)) { echo $succesNom; } ?>
+            <br />
+            <br />
+            <label for="prenom">Prénom :</label>
+            <input class="input" type="text" name="n_prenom" placeholder="Prénom" value="<?php echo $user['prenom']; ?>" id="prenom" />
+            <?php if(isset($succesPrenom)) { echo $succesPrenom; } ?>
+            <br />
+            <br />
+            <!-- Pour le pseudo en plus affichage d'un avertissement pseudo déjà utilisé au cas où-->
+            <label for="pseudo">Pseudo :</label>
+            <input class="input" type="text" name="n_pseudo" placeholder="Pseudo" value="<?php echo $user['username']; ?>" id="pseudo" />
+            <?php if(isset($succesPseudo)) { echo $succesPseudo;}
+               if(isset($erreurPseudo)) { echo $erreurPseudo;} ?>
+            <br />
+            <br />
+            <label for="question">Question secrète :</label>
+            <select class="input" name="n_question" id="question">
+            <option value="choix1">Le nom de jeune fille de votre mère</option>
+            <option value="choix2">Le nom de votre premier animal de compagnie</option>
+            <option value="choix3">La ville de naissance de votre père</option>
+            </select>
+            <?php if(isset($succesQuestion)) { echo $succesQuestion; } ?>
+            <br/>
+            <br/>
+            <label for="reponse">Réponse à la question secrète :</label>
+            <input class="input" type="text" name="n_reponse" placeholder="Réponse à la question choisie" id="reponse" />
+            <?php if(isset($succesReponse)) { echo $succesReponse; } ?>
+            <br />
+            <br />
+            <label for="password">Mot de passe :</label>
+            <input class="input" type="password" name="n_password" placeholder="Mot de passe" id="password"/>
+            <?php if(isset($succesPassword)) { echo $succesPassword; } ?>
+            <br />
+            <br />
+            <input class="btn_connexion" type="submit" value="Mettre à jour" />
+         </fieldset>
+      </form><br/><br/>
+   </div>
 </div>
 <?php
 }
-else {
+else
+{
    header("Location: connexion.php");
 }
+?>
+<?php
+include('Commun/footer.php');
 ?>
