@@ -24,7 +24,7 @@ if (!empty($_SESSION['id_user'])) {
             // puis redirection vers la page connexion et envoi du message ok par l'url
             header('Location: connexion.php?ok=password');
         }
-        // Si tout les champs ne sont pas remplis afficher un message
+        // Si tout les champs ne sont pas remplis
         else {
             echo '<p style="color: #F51720;"><strong>Veuillez remplir tous les champs.</strong></p>';
         }
@@ -36,13 +36,13 @@ else {
 }
 ?>
 
-<div id="connect">
-    <form class="form" method="post" action="nouveau_mot_de_passe.php">
-        <label for="password"> Saisissez votre nouveau mot de passe ! :</label> <br>
-        <input class="input" type="password" name="password" id="password"> <br>
-        <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Valider" name="envoyer"> <br>
-    </form>
-</div>
+        <div id="connect">
+            <form class="form" method="post" action="nouveau_mot_de_passe.php">
+                <label for="password"> Saisissez votre nouveau mot de passe ! :</label> <br>
+                <input class="input" type="password" name="password" id="password"> <br>
+                <input class="btn_connexion buttons btn-hover color-8" type="submit" value="Valider" name="envoyer"> <br>
+            </form>
+        </div>
 <?php
 // footer
 include('Commun/footer.php');
