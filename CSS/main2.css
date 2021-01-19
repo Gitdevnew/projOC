@@ -1,85 +1,83 @@
-body
-{
 
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: auto;
     font-family: 'Open Sans',sans-serif;
     color: #212121;
 }
 
 
-h1
-{
-
-    text-align: center;
+h1 {
+   text-align: center;
 }
 
-h3
-{
+h3 {
     margin-bottom: 30px;
 }
 
 /*page index*/
 
 .container {
-
     max-width: 100%;
     height: 90%;
     border-radius: 6px;
     border: solid 1px #bababa;
     background: #ededed;
     margin: 5%;
-    padding: 90px;
     text-align: center;
 }
 
-.buttonaccueil {
 
-    background-color: #b6b6b6;
-    border-radius: 7px;
-    transform: scale(0.9);
-    max-width: 80%;
-    transition: transform 400ms;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
+/*header*/
+
+.logo_accueil {
+    width: auto;
+    max-height: 85px;
 }
 
-
-.buttonaccueil a {
-    color: #151515;
-    text-decoration: none;
-}
-
-.buttonaccueil a:hover {
-    color: #010101;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.logo
-{
+.logo_connecte {
     float: left;
     width: auto;
-    max-height: 60px;
+    max-height: 80px;
     display: flex;
 }
 
-.logo2
-{
-    width: auto;
-    max-height: 95px;
+#affichage_nom {
+    text-align:left;
+    height:70px;
+    display: flex;
+    justify-content: flex-end;
+    vertical-align:middle;
+    line-height: 50px;
+}
+
+.nom_prenom, .bouton_header{
+    color: #212121;
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    background: white;
+}
+
+.bouton_header {
+    cursor: pointer;
+}
+
+.bouton_header:hover {
+    font-weight: bold;
+    box-shadow: 10px 5px 5px red;
 }
 
 /*footer*/
 
 .containfoot {
-
     text-align: center;
 }
 
 .containfoot a {
-
     text-align: center;
     color: #151515;
     text-decoration: none;
@@ -93,20 +91,31 @@ h3
 
 
 
-/*page connexion*/ /*page inscription*/
+/**page connexion/ page inscription / nouveau_mot_de_passe/ page_des_parametres_utilisateurs/page acteur*/
+
 
 #connect {
-        margin: 7%;
-        border-radius: 8px;
-        border: solid 1px #bababa;
-        background: #ededed;
-    }
-#connect label, h2, a {
-        margin-left: 10px;
-    }
+    margin:0 7%;
+    border-radius: 8px;
+    border: solid 1px #bababa;
+    background: #ededed;
+}
 
-a
-{
+#connect label, h2, h3, a {
+    margin-left: 10px;
+}
+.connect {
+    margin:0 7%;
+    border-radius: 8px;
+    border: solid 1px #bababa;
+    background: #ededed;
+}
+
+.connect label, h2, h3, a {
+    margin-left: 10px;
+}
+
+a {
     color: #F51720;
     text-decoration: none;
 }
@@ -116,10 +125,176 @@ a
     margin-left: 10px;
 }
 
-.btn_connexion
-{
+.input {
+    width: 93%;
+    margin: 15px;
+    border-radius: 8px;
+    border: solid 1px #dbdbdb;
+    background: #fff;
+    padding: 25px;
+}
+
+
+.aff_don, .inscription, .param_ut {
+    margin-top: 80px;
+}
+
+/*Page mentions légales*/
+
+#men_leg {
+    margin: 20px;
+}
+
+/*page utilisateur*/
+
+#contain_desc {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    background: #ededed;
+}
+
+#container_acteurs {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+
+}
+
+#container_acteurs h2 {
+    text-decoration : underline;
+}
+
+
+#contain_text {
+    margin: 25px 5px 25px 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.illustration {
+    display: block;
+    max-width: 90%;
+    text-align: center;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.contain_acteur {
+    display: inline-flex;
+    padding: 45px;
+    margin: 40px;
+    border:  1px dashed black;
+    border-radius: 7px;
+    background: #ededed;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+
+.contain_acteur  img {
+    margin-top: 30px;
+    width: 37%;
+    height: 125px;
+}
+
+
+/*page acteur*/
+
+
+.like_dislike {
+    display: flex;
+    margin-left: 100px;
+}
+
+.like {
+    display: flex;
+}
+
+.dislike {
+    display: flex;
+}
+
+.btn_like {
+    border: none;
+    width: 90px;
+    background-color: white;
+    outline: none;
+}
+
+.p_pnd {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.p_c {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.icon {
+   max-width: 50%;
+}
+
+.icon:hover {
     cursor: pointer;
-    background-color: #b6b6b6;
+}
+
+.img_logo {
+    display:block;
+    text-align:center;
+    max-width: 90%;
+    height:182px;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.contain_donnees {
+    display:block;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+/*page commentaires PDO*/
+
+
+.comment_pdo {
+    margin-top: 80px;
+}
+
+.formulaire textarea {
+    height: 250px;
+    padding: 7px 20px;
+    border: 0.5px;
+    border-radius: 7px;
+    width: 92%;
+    margin-left: 11px;
+    margin-right: auto;
+}
+
+
+/* CLASS BUTTON*/
+
+.btn_connexion {
+    cursor: pointer;
+    background-color: #d5d5d5;
     padding: 0.6rem 1rem;
     border-radius: 7px;
     transform: scale(0.9);
@@ -132,22 +307,119 @@ a
 }
 
 
-.btn_connexion:hover
-{
+.btn_connexion:hover {
     font-weight: bold;
     transform: scale(1);
-
 }
 
-.input
-{
-    width: 93%;
-    margin: 15px;
-    border-radius: 8px;
-    border: solid 1px #dbdbdb;
-    background: #fff;
-    padding: 25px;
-
+.buttons {
+    margin: 10%;
+    text-align: center;
 }
 
+.btn-hover {
+    width: 180px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+    background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+   background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+   box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+@media only screen and (max-width : 700px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo_connecte, .nom_prenom, .relative {
+        position: relative;
+   }
+
+    .relative {
+        position: relative;
+    }
+
+    .contain_acteur {
+        display: block;
+        border:  1px dashed black;
+        background: #ededed;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    .contain_acteur  img {
+        width: 90%;
+        height: 125px;
+    }
+
+    .like_dislike {
+        display: flex;
+        margin-left: 0px;
+    }
+}
 
