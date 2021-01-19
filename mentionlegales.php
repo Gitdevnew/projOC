@@ -5,7 +5,8 @@
 ?>
 
 <br><br>
-<h1 style="font-weight: bold; text-align: center;">Mentions légales</h1>
+<div id="men_leg">
+  <h1>Mentions légales</h1>
 <p>
 
   Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes, varia animo tum miscente consilia, tandem id ut optimum factu elegit: et Vrsicinum primum ad se venire summo cum honore mandavit ea specie ut pro rerum tunc urgentium captu disponeretur concordi consilio, quibus virium incrementis Parthicarum gentium a arma minantium impetus frangerentur.<br><br>
@@ -38,6 +39,10 @@ Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec a
 
 Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.
  </p>
+
+</div>
+
+
 
  <?php
 include("Commun/footer.php");
