@@ -32,7 +32,7 @@ if(empty($_SESSION['id_user']) AND empty($_SESSION['pseudo']) AND empty($_SESSIO
                 </a>
             </div>
         </header>
- <?php }
+<?php }
 // Autrement si les variables de sessions ne sont pas vides afficher le Header utilisateur connecté
 else {
 ?>
@@ -42,9 +42,8 @@ else {
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-             <?php
-                if(!empty($title))
-                {
+            <?php
+                if(!empty($title)) {
             ?>
             <title><?= $title; }?></title>
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
