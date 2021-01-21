@@ -86,6 +86,6 @@ if(isset($_GET['vote']) AND isset($_GET['id']) AND isset($_SESSION['id_user']) A
     }
 }
 else {
-    exit('Erreur Fatale. <a href="index_user.php">Revenir à la page d\'accueil</a>');
+    exit('Erreur Fatale. <a href="page_utilisateur.php">Revenir à la page d\'accueil</a>');
 }
 ?>
