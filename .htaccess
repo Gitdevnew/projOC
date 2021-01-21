@@ -1,0 +1,24 @@
+
+# Pour les pages en acces public seule l'erreur 404 est nécessaire
+
+ErrorDocument 404 /openclassroom/Projet3/MONPROJET3/page_non_trouvee.php?page=erreur404
+
+# Protections
+
+Options All -Indexes
+ServerSignature off
+AddDefaultCharset UTF-8
+
+#Protection XSS, clickJacking et Mime-Type
+<ifModule mod_headers.c>
+Header set X-XSS-Protection "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options: "nosniff”
+</ifModule>
+
+# protection contre les injections de fichiers
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteRule .* - [F]
