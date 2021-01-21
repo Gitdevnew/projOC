@@ -5,14 +5,20 @@ $title = 'Page d\'un acteur';
 require("Commun/PDO.php");
 require_once("Commun/header.php");
 
-// On vérifie d'abord que la variable $_GET['id'] est bien présente et remplie
-if(isset($_GET['id']) && !empty($_GET['id'])) {
-    // On met l'id dans une variable $getId qui servira pour toutes les requetes de la page et l'envoi de l'id dans l'url (pour les pages: commentaire_PDO.php et like_dislike_PDO.php)
+// On vérifie d'abord que la variable $_GET['id'] est bien présente et remplie je verifie aussi que l'id est <= à 4 car il n'y a que 4 acteurs (si un acteur est rajouté dans la base il faudra mettre un 5 et +1 a chaque fois qu'on rajoute un acteur) sinon sans cette condition si quelqu'un change à la main l'id dans l'url la page affiche des erreurs, et elle affiche la structure html sans les données de l'acteur puisqu'il n'existe pas, grace a cette condition le else redirige vers la page d'accueil des acteurs.
+
+if(isset($_GET['id']) && !empty($_GET['id']) && ($_GET['id'] <=4)) {
+
+   // On met l'id dans une variable $getId qui servira pour toutes les requetes de la page et l'envoi de l'id dans l'url (pour les pages: commentaire_PDO.php et like_dislike_PDO.php)
     $getId = ($_GET['id']);
     // On récupère toutes les données de l' acteur grace a son id avec un bind value
     $stmt = $bdd->prepare('SELECT * FROM acteur WHERE id_acteur = :id_acteur');
     $stmt->bindValue(':id_acteur', $getId, PDO::PARAM_INT);
     $stmt->execute();
+    }
+// sinon si l'id n'est pas rempli (si quelqu'un supprime l'id dans l'url) ou si quelqu'un écrit un id qui n'existe pas (25 par exemple) redirection vers la page d'accueil utilisateur
+else {
+header('location: page_utilisateur.php');
 }
 // on verifie avec un rowcount == 1 que l' acteur est bien sélectionné (par son id) puis on rempli les variables d'affichage dans la page acteur
 if($stmt->rowCount() == 1) {
