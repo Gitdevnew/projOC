@@ -1,0 +1,3 @@
+# Redirection
+
+ErrorDocument 403 /openclassroom/Projet3/MONPROJET3/acces_non_autorise.php?page=erreur403
